@@ -16,7 +16,7 @@ public class RabbitMQConfig {
     private String queue;
 
     @Value("${rabbitmq.queue.json.name}")
-    private String javaQueue;
+    private String jsonQueue;
 
     @Value("${rabbitmq.exchange.name}")
     private String exchange;
@@ -36,7 +36,7 @@ public class RabbitMQConfig {
     // spring bean for queue (store json messages)
     @Bean
     public Queue jsonQueue() {
-        return new Queue(javaQueue);
+        return new Queue(jsonQueue);
     }
 
     // spring bean for rabbitmq exchange
